@@ -20,10 +20,47 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-dK-Ilc">
                                 <rect key="frame" x="67.5" y="163.5" width="240" height="340"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xJm-ha-Xak">
+                                        <rect key="frame" x="-0.5" y="-0.5" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xeN-Ed-bFD">
                                         <rect key="frame" x="20" y="155" width="200" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
+                                        <color key="thumbTintColor" systemColor="systemRedColor"/>
+                                        <connections>
+                                            <action selector="changeColor:" destination="DRx-TJ-JXV" eventType="valueChanged" id="9US-ob-JyS"/>
+                                            <action selector="chooseColor:" destination="DRx-TJ-JXV" eventType="valueChanged" id="y7Z-bU-Xsm"/>
+                                        </connections>
                                     </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DrW-JB-mZD">
+                                        <rect key="frame" x="20" y="192" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
+                                        <color key="thumbTintColor" systemColor="systemGreenColor"/>
+                                        <connections>
+                                            <action selector="changeColor:" destination="DRx-TJ-JXV" eventType="valueChanged" id="aDk-Wd-y4m"/>
+                                            <action selector="chooseColor:" destination="DRx-TJ-JXV" eventType="valueChanged" id="uE3-pF-oL4"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ark-h4-0xk">
+                                        <rect key="frame" x="20" y="229" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
+                                        <color key="thumbTintColor" systemColor="systemBlueColor"/>
+                                        <connections>
+                                            <action selector="changeColor:" destination="DRx-TJ-JXV" eventType="valueChanged" id="aSh-zG-8Ig"/>
+                                            <action selector="chooseColor:" destination="DRx-TJ-JXV" eventType="valueChanged" id="tB5-Mp-RN3"/>
+                                        </connections>
+                                    </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hx-Fi-IUv">
+                                        <rect key="frame" x="22" y="281" width="196" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Escolher cor"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -39,10 +76,16 @@
                             <constraint firstItem="fyA-dK-Ilc" firstAttribute="centerX" secondItem="iuV-sH-Eso" secondAttribute="centerX" id="CNy-YJ-x5S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="slBlue" destination="ark-h4-0xk" id="N4M-Ql-tuZ"/>
+                        <outlet property="slGreen" destination="DrW-JB-mZD" id="Zyj-5o-mXi"/>
+                        <outlet property="slRed" destination="xeN-Ed-bFD" id="2UP-Nh-1uw"/>
+                        <outlet property="viColor" destination="xJm-ha-Xak" id="709-ch-spq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qur-fB-6pb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="-592"/>
+            <point key="canvasLocation" x="477.60000000000002" y="-592.35382308845578"/>
         </scene>
         <!--Mensagem-->
         <scene sceneID="tne-QT-ifu">
@@ -290,6 +333,15 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
