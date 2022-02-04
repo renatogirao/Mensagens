@@ -11,6 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
 
     @IBOutlet weak var labelMessage: UILabel!
+    var message: Message!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,6 @@ class BaseViewController: UIViewController {
     }
     
     @IBAction func changeColor(_ sender: UIButton) {
-        
+       
     }
-    
 }
