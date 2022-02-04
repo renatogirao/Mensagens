@@ -8,29 +8,33 @@
 
 import UIKit
 
-class ColorPickerViewController: UIViewController {
+protocol colorPickerProtocol: class {
+    func applyColor(color: UIColor) 
+}
 
+class ColorPickerViewController: UIViewController {
+    
     @IBOutlet var slRed: UISlider!
     @IBOutlet var slGreen: UISlider!
     @IBOutlet var slBlue: UISlider!
     @IBOutlet var viColor: UIView!
     
+    weak var reference: colorPickerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func chooseColor(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        reference?.applyColor(color: viColor.backgroundColor!)
     }
-  
+    
     @IBAction func changeColor(_ sender: Any) {
         
         viColor.backgroundColor = UIColor(red: CGFloat(slRed.value), green: CGFloat(slGreen.value), blue: CGFloat(slBlue.value), alpha: 1.0)
-    
         
-    
     }
     
 }
