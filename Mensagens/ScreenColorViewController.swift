@@ -10,15 +10,27 @@ import UIKit
 class ScreenColorViewController: BaseViewController {
     
     @IBOutlet weak var viBorder: UIView!
+    @IBOutlet var swWhiteBorder: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
     
+    @IBAction func changeBorder(_ sender: UISwitch) {
+        viBorder.backgroundColor = sender.isOn ? .white : .clear
+    }
+}
+
+extension ScreenColorViewController: colorPickerProtocol {
+    func applyColor(color: UIColor) {
+        labelMessage.textColor = color
+    }
 }
 
