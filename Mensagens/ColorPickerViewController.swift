@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol colorPickerProtocol: class {
+protocol colorPickerDelegate: class {
     func applyColor(color: UIColor) 
 }
 
@@ -19,7 +19,7 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet var slBlue: UISlider!
     @IBOutlet var viColor: UIView!
     
-    weak var reference: colorPickerProtocol?
+    weak var delegate: colorPickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ColorPickerViewController: UIViewController {
     
     @IBAction func chooseColor(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        reference?.applyColor(color: viColor.backgroundColor!)
+        delegate?.applyColor(color: viColor.backgroundColor!)
     }
     
     @IBAction func changeColor(_ sender: Any) {

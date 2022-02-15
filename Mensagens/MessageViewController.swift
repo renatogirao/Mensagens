@@ -20,13 +20,6 @@ class MessageViewController: BaseViewController {
         let vc = segue.destination as! MessageColorViewController
         vc.message = message
     }
-    
-    override func changeColor(_ sender: UIButton) {
-        let ColorPickerVC = storyboard?.instantiateViewController(withIdentifier: "ColorPickerViewController") as! ColorPickerViewController
-        ColorPickerVC.modalPresentationStyle = .overCurrentContext
-        ColorPickerVC.reference = self
-        present(ColorPickerVC, animated: true, completion: nil)
-    }
 }
 
 extension MessageViewController: UITextFieldDelegate {
@@ -39,7 +32,7 @@ extension MessageViewController: UITextFieldDelegate {
     }
 }
 
-extension MessageViewController: colorPickerProtocol {
+extension MessageViewController: colorPickerDelegate {
     func applyColor(color: UIColor) {
         labelMessage.textColor = color
         message.textColor = color

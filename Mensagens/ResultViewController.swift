@@ -10,10 +10,18 @@ import UIKit
 class ResultViewController: BaseViewController {
 
     @IBOutlet weak var viBorder: UIView!
+    var useWhiteBorder: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        labelMessage.text = message.text
+        labelMessage.textColor = message.textColor
+        labelMessage.backgroundColor = message.backgroundColor
+        view.backgroundColor = message.screenColor
+        viBorder.backgroundColor = useWhiteBorder ? .white : .clear
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

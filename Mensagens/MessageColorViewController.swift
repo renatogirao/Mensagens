@@ -13,19 +13,19 @@ class MessageColorViewController: BaseViewController {
         super.viewDidLoad()
         labelMessage.text = message.text
         labelMessage.textColor = message.textColor
+        labelMessage.backgroundColor = message.backgroundColor
     }
     
-    override func changeColor(_ sender: UIButton) {
-        let colorPickerView = storyboard?.instantiateViewController(withIdentifier: "ColorPickerViewController") as! ColorPickerViewController
-        colorPickerView.modalPresentationStyle = .overCurrentContext
-        present(colorPickerView, animated: true, completion: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ScreenColorViewController
+        vc.message = message
     }
 }
 
-extension MessageColorViewController: colorPickerProtocol {
+extension MessageColorViewController: colorPickerDelegate {
     func applyColor(color: UIColor) {
-        labelMessage.textColor = color
-        message.textColor = color
+        labelMessage.backgroundColor = color
+        message.backgroundColor = color
     }
 }
 

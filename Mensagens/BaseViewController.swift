@@ -9,16 +9,22 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
     @IBOutlet weak var labelMessage: UILabel!
     var message: Message!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func changeColor(_ sender: UIButton) {
-       
+        
+        if let reference = self as? colorPickerDelegate {
+            let ColorPickerVC = storyboard?.instantiateViewController(withIdentifier: "ColorPickerViewController") as! ColorPickerViewController
+            ColorPickerVC.modalPresentationStyle = .overCurrentContext
+            ColorPickerVC.delegate = reference
+            present(ColorPickerVC, animated: true, completion: nil)
+        }
     }
 }
